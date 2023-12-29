@@ -1,0 +1,61 @@
+﻿@page
+@model AspNetWebApp.Pages.Filers.IndexModel
+@{
+}
+
+<style type="text/css">
+
+</style>
+
+
+<form>
+    <p>
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+        @* <input type="reset" value="Clear" onclick="this.form.reset();return false" /> *@
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Filers[0].Alias)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Filers[0].FilerName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Filers[0].IpAddress)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Filers[0].Path)
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+@foreach(var item in Model.Filers)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IpAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Path)
+        </td>
+        <td>
+            <a asp-page="./Details" asp-route-id="@item.FilerName">Details</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+<h5 style="color:green">Nasuni support portal link :- https://community.nasuni.com/</h5>
