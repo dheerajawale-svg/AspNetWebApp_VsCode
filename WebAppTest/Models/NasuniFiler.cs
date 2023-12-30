@@ -1,6 +1,6 @@
 ﻿namespace WebAppTest.Models
 {
-    public class Filer
+    public class NasuniFiler
     {
         public string Alias { get; set; }
 

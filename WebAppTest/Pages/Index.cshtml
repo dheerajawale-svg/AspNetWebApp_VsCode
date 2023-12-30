@@ -5,6 +5,22 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <a href="/Filers">Go To Storage & Backup Location</a>
+    <h1 class="display-4">Welcome To Storage & Backup Browser</h1>
+    <br />
+    <form>
+        <p>
+            Search SiteName: <input type="text" asp-for="SearchString" />
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+</div>
+<br />
+<div>
+    <ul>
+        @foreach (var site in Model.AamSites)
+        {
+            <a href="/Filers"/>
+            <li> @Html.DisplayFor(x => site.Name) </li>
+        }
+    </ul>
 </div>

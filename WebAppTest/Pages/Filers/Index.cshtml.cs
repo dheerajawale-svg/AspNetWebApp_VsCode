@@ -15,32 +15,56 @@ namespace WebAppTest.Pages.Filers
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public IList<Filer> Filers { get; set; }
+        public AamSite AamSite { get; set; }
 
 
         [BindProperty(SupportsGet = true)]
-        public string? SearchString { get; set; }
+        public string SearchString { get; set; }
 
         public void OnGet()
         {
-            var rootPath = _webHostEnvironment.WebRootPath; //get the root path
-            var fullPath = Path.Combine(rootPath, "data\\filers.json"); //combine the root path with that of our json file inside mydata directory
-            var jsonData = System.IO.File.ReadAllText(fullPath); //read all the content inside the file
+            DataService.Instance.FetchData(_webHostEnvironment.WebRootPath);
+            var aamSites = DataService.Instance.AamSites;
 
-            var filers = JsonSerializer.Deserialize<List<Filer>>(jsonData, new JsonSerializerOptions
+            AamSite = aamSites.FirstOrDefault();
+        }
+
+        private static T ParseData<T>(string rootPath, string fileName)
+        {
+            var fullPath = Path.Combine(rootPath, fileName);
+            var jsonData = System.IO.File.ReadAllText(fullPath);
+
+            var filers = JsonSerializer.Deserialize<T>(jsonData, new JsonSerializerOptions
             {
                 NumberHandling = JsonNumberHandling.AllowReadingFromString,
                 WriteIndented = true
             });
 
-            if (string.IsNullOrEmpty(SearchString))
-            {
-                Filers = filers;
-            }
-            else
-            {
-                Filers = new List<Filer>(filers.Where(s => s.FilerName.Contains(SearchString)));
-            }
+            return filers;
+        }
+
+        private void Misc()
+        {
+            //var avamardetails = ParseData<List<AvamarDetails>>(rootPath, "data\\avamardetails.json");
+            //var avamarreplication = ParseData<List<AvamarReplication>>(rootPath, "data\\avamarreplication.json");
+            //var avamarproxy = ParseData<List<AvamarProxy>>(rootPath, "data\\avamarproxy.json");
+            //var serverlist = ParseData<List<string>>(rootPath, "data\\serverlist.json");
+            //var datadomain = ParseData<List<DataDomain>>(rootPath, "data\\datadomain.json");
+
+            //AamSite site = new AamSite
+            //{
+            //    NasuniFilers = filers,
+            //    AvamarDetails = avamardetails,
+            //    AvamarReplication = avamarreplication,
+            //    AvamarProxy = avamarproxy,
+            //    Servers = serverlist,
+            //    DataDomain = datadomain
+            //};
+
+            //var json = JsonSerializer.Serialize(site);
+            //Console.WriteLine(json);
+
+
         }
     }
 }

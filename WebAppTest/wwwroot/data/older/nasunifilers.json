@@ -10,7 +10,7 @@
         "Shares": "5",
         "Version": "9.9.5 (OS7)"
     },
-	{
+    {
         "Alias": "NA",
         "CacheSize": "1.69 TB",
         "ConnectedVolumes": "hal-vol002,EnggIT-vol001",
@@ -21,7 +21,7 @@
         "Shares": "5",
         "Version": "9.9.5 (OS7)"
     },
-	{
+    {
         "Alias": "NA",
         "CacheSize": "1.69 TB",
         "ConnectedVolumes": "hal-vol002,EnggIT-vol001",
@@ -32,7 +32,7 @@
         "Shares": "5",
         "Version": "9.9.5 (OS7)"
     },
-	{
+    {
         "Alias": "NA",
         "CacheSize": "1.69 TB",
         "ConnectedVolumes": "hal-vol002,EnggIT-vol001",
@@ -43,7 +43,7 @@
         "Shares": "5",
         "Version": "9.9.5 (OS7)"
     },
-	{
+    {
         "Alias": "NA",
         "CacheSize": "1.69 TB",
         "ConnectedVolumes": "hal-vol002,EnggIT-vol001",

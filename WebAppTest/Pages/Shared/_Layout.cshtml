@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - AAMWebApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/AspNetWebApp.styles.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/AspNetWebApp.styles.css" asp-append-version="true" /> *@
 </head>
 <body>
     <header>
@@ -34,16 +34,18 @@
         </nav>
     </header>
     <div class="container">
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
     </div>
 
-    <footer class="border-top footer text-muted">
+    @* <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - AAM Web App - <a asp-area="" asp-page="/Privacy">About</a>
         </div>
-    </footer>
+    </footer> *@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,3 +1,5 @@
+using Microsoft.Extensions.FileProviders;
+
 namespace WebAppTest
 {
     public class Program
@@ -8,6 +10,7 @@ namespace WebAppTest
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            //builder.Services.AddDirectoryBrowser();
 
             var app = builder.Build();
 
@@ -21,6 +24,13 @@ namespace WebAppTest
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            var path = Path.Combine(builder.Environment.WebRootPath, "images");
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(path),
+                RequestPath = "/Filers"
+            });
+            //app.UseDirectoryBrowser();
 
             app.UseRouting();
 

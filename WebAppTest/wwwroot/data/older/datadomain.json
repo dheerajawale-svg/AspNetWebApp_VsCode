@@ -1,0 +1,18 @@
+[
+    {
+        "Avamar Replication": "Source",
+        "Data Domain hostname": "halpaddp001",
+        "Ip address": "10.143.37.11",
+        "Model": "DD3300",
+        "Total Capacity": "15.12 TB",
+        "Version": "7.10.1.15-1078832"
+    },
+    {
+        "Avamar Replication": "Destination (AWS)",
+        "Data Domain hostname": "aeuvaddp001",
+        "Ip address": "172.25.15.185",
+        "Model": "DD VE",
+        "Total Capacity": "29.09 TB",
+        "Version": "7.10.1.15-1078832"
+    }
+]
