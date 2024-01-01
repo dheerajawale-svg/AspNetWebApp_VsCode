@@ -44,13 +44,13 @@ namespace WebAppTest
             //var fullPath = Path.Combine(rootPath, fileName);
             var jsonData = System.IO.File.ReadAllText(fullPath);
 
-            var filers = JsonSerializer.Deserialize<T>(jsonData, new JsonSerializerOptions
+            var dataModel = JsonSerializer.Deserialize<T>(jsonData, new JsonSerializerOptions
             {
                 NumberHandling = JsonNumberHandling.AllowReadingFromString,
                 WriteIndented = true
             });
 
-            return filers;
+            return dataModel;
         }
     }
 }

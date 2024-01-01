@@ -28,7 +28,7 @@ namespace WebAppTest
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(path),
-                RequestPath = "/Filers"
+                RequestPath = "/AAM"
             });
             //app.UseDirectoryBrowser();
 

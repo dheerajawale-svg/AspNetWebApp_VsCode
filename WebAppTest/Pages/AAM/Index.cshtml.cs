@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using WebAppTest.Models;
 
-namespace WebAppTest.Pages.Filers
+namespace WebAppTest.Pages.AAM
 {
     public class IndexModel : PageModel
     {
