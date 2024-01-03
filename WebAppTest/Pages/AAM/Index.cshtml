@@ -1,190 +1,192 @@
-﻿@page
+﻿@page "{siteName}"
 @using WebAppTest.Models
 @model IndexModel
-@{
+
+@if(Model.AamSite == null)
+{
+    <h1>No Details present for this site</h1>
 }
+else
+{
+    <img src="@Model.AamSite.DiagramPath" style="max-height: 650px;" />
+    <hr />
+    <br />
 
-<style type="text/css">
+    @* Nasuni Details *@
+    <h3>Nasuni Details</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @nameof(NasuniFiler.Alias)
+                </th>
+                <th scope="col">
+                    @nameof(NasuniFiler.FilerName)
+                </th>
+                <th scope="col">
+                    @nameof(NasuniFiler.IpAddress)
+                </th>
+                <th scope="col">
+                    @nameof(NasuniFiler.Path)
+                </th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
 
-</style>
+        @foreach (var item in Model.AamSite.NasuniFilers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alias)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FilerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IpAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Path)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.FilerName">Details</a>
+                </td>
+            </tr>
+        }
 
-<img src="@Model.AamSite.DiagramPath" style="max-height: 650px;" />
-<hr/>
-<br/>
-@* Nasuni Details *@
-<h3>Nasuni Details</h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">
-                @nameof(NasuniFiler.Alias)
-            </th>
-            <th scope="col">
-                @nameof(NasuniFiler.FilerName)
-            </th>
-            <th scope="col">
-                @nameof(NasuniFiler.IpAddress)
-            </th>
-            <th scope="col">
-                @nameof(NasuniFiler.Path)
-            </th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
+    </table>
 
-    @foreach (var item in Model.AamSite.NasuniFilers)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Alias)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FilerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IpAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Path)
-            </td>
-            <td>
-                <a asp-page="./Details" asp-route-id="@item.FilerName">Details</a>
-            </td>
-        </tr>
-    }
+    <h5 style="color:green">Nasuni support portal link :- https://community.nasuni.com/</h5>
 
-</table>
+    <hr />
+    @* Avamar Details *@
+    <h3>Avamar Details</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @nameof(AvamarDetails.Hostname)
+                </th>
+                <th scope="col">
+                    @nameof(AvamarDetails.IP)
+                </th>
+                <th scope="col">
+                    @nameof(AvamarDetails.OEMVersion)
+                </th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
 
-<h5 style="color:green">Nasuni support portal link :- https://community.nasuni.com/</h5>
+        @foreach (var item in Model.AamSite.AvamarDetails)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hostname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OEMVersion)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.Hostname">Details</a>
+                </td>
+            </tr>
+        }
 
-<hr />
-@* Avamar Details *@
-<h3>Avamar Details</h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">
-                @nameof(AvamarDetails.Hostname)
-            </th>
-            <th scope="col">
-                @nameof(AvamarDetails.IP)
-            </th>
-            <th scope="col">
-                @nameof(AvamarDetails.OEMVersion)
-            </th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
+    </table>
 
-    @foreach (var item in Model.AamSite.AvamarDetails)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hostname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IP)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OEMVersion)
-            </td>
-            <td>
-                <a asp-page="./Details" asp-route-id="@item.Hostname">Details</a>
-            </td>
-        </tr>
-    }
+    @* Avamar Replication *@
+    <h3>Avamar Replication Details</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @nameof(AvamarReplication.Source)
+                </th>
+                <th scope="col">
+                    @nameof(AvamarReplication.Destination)
+                </th>
+                <th scope="col">
+                    @nameof(AvamarReplication.OEMVersion)
+                </th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
 
-</table>
+        @foreach (var item in Model.AamSite.AvamarReplication)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Source)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OEMVersion)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.Source">Details</a>
+                </td>
+            </tr>
+        }
 
-@* Avamar Replication *@
-<h3>Avamar Replication Details</h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">
-                @nameof(AvamarReplication.Source)
-            </th>
-            <th scope="col">
-                @nameof(AvamarReplication.Destination)
-            </th>
-            <th scope="col">
-                @nameof(AvamarReplication.OEMVersion)
-            </th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
+    </table>
 
-    @foreach (var item in Model.AamSite.AvamarReplication)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Source)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Destination)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OEMVersion)
-            </td>
-            <td>
-                <a asp-page="./Details" asp-route-id="@item.Source">Details</a>
-            </td>
-        </tr>
-    }
+    <hr />
+    @* Avamar Proxy*@
+    <h3>Avamar Proxy Details</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @nameof(AvamarProxy.Hostname)
+                </th>
+                <th scope="col">
+                    @nameof(AvamarProxy.IP)
+                </th>
+                <th scope="col">
+                    @nameof(AvamarProxy.Version)
+                </th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
 
-</table>
+        @foreach (var item in Model.AamSite.AvamarProxy)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hostname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.Hostname">Details</a>
+                </td>
+            </tr>
+        }
 
-<hr />
-@* Avamar Proxy*@
-<h3>Avamar Proxy Details</h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">
-                @nameof(AvamarProxy.Hostname)
-            </th>
-            <th scope="col">
-                @nameof(AvamarProxy.IP)
-            </th>
-            <th scope="col">
-                @nameof(AvamarProxy.Version)
-            </th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
+    </table>
 
-    @foreach (var item in Model.AamSite.AvamarProxy)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hostname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IP)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Version)
-            </td>
-            <td>
-                <a asp-page="./Details" asp-route-id="@item.Hostname">Details</a>
-            </td>
-        </tr>
-    }
+    <hr />
+    <h3> Servers List </h3>
+    <label>Total Count : </label>
+    <label>@Model.AamSite.Servers.Count</label>
 
-</table>
-
-<hr />
-<h3> Servers List </h3>
-<label>Total Count : </label>
-<label>@Model.AamSite.Servers.Count</label>
-
-<br/>
-<br />
-<ol>
-    @foreach (var server in Model.AamSite.Servers)
-    {
-        <li>
-            @Html.DisplayFor(x => server);
-        </li>
-    }
-</ol>
+    <br />
+    <br />
+    <ol>
+        @foreach (var server in Model.AamSite.Servers)
+        {
+            <li>
+                @Html.DisplayFor(x => server);
+            </li>
+        }
+    </ol>
+}

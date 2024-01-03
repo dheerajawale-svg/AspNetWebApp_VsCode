@@ -34,8 +34,8 @@ namespace WebAppTest
 
                 AamSites.Add(aamSite);
 
-                var json = JsonSerializer.Serialize(aamSite);
-                Console.WriteLine(json);
+                //var json = JsonSerializer.Serialize(aamSite);
+                //Console.WriteLine(json);
             }
         }
 
@@ -47,7 +47,7 @@ namespace WebAppTest
             var dataModel = JsonSerializer.Deserialize<T>(jsonData, new JsonSerializerOptions
             {
                 NumberHandling = JsonNumberHandling.AllowReadingFromString,
-                WriteIndented = true
+                PropertyNameCaseInsensitive = true
             });
 
             return dataModel;

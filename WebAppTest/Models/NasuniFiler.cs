@@ -1,19 +1,21 @@
-﻿namespace WebAppTest.Models
+﻿using System.Text.Json.Serialization;
+
+namespace WebAppTest.Models
 {
     public class NasuniFiler
     {
         public string Alias { get; set; }
 
-        //[JsonProperty(PropertyName = "Cache size")]
+        [JsonPropertyName("Cache Size")]
         public string CacheSize { get; set; }
 
-        //[JsonProperty(PropertyName = "ConnectedVolumes")]
+        [JsonPropertyName("Connected Volumes")]
         public string ConnectedVolumes { get; set; }
 
-        //[JsonProperty(PropertyName = "Filer name")]
+        [JsonPropertyName("Filer name")]
         public string FilerName { get; set; }
 
-        //[JsonProperty(PropertyName = "Ip address")]
+        [JsonPropertyName("Ip address")]
         public string IpAddress { get; set; }
 
         public string Path { get; set; }

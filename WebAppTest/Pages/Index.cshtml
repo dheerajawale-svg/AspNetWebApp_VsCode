@@ -19,7 +19,7 @@
     <ul>
         @foreach (var site in Model.AamSites)
         {
-            <a href="/AAM" />
+            <a href="/AAM/@site.Name" />
             <li> @Html.DisplayFor(x => site.Name) </li>
         }
     </ul>

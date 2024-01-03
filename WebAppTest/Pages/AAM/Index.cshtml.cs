@@ -17,6 +17,8 @@ namespace WebAppTest.Pages.AAM
 
         public AamSite AamSite { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string SiteName { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
@@ -26,7 +28,12 @@ namespace WebAppTest.Pages.AAM
             DataService.Instance.FetchData(_webHostEnvironment.WebRootPath);
             var aamSites = DataService.Instance.AamSites;
 
-            AamSite = aamSites.FirstOrDefault();
+            var currentSite = aamSites.FirstOrDefault(s => s.Name == SiteName);
+
+            if (!currentSite.Name.Contains("Dummy"))
+            {
+                AamSite = currentSite;
+            }
         }
 
         private static T ParseData<T>(string rootPath, string fileName)

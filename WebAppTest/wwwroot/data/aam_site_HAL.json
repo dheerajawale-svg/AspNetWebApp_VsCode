@@ -3,7 +3,7 @@
         {
             "Hostname": "halvaavmrp001.aam.net",
             "IP": "10.143.37.15",
-            "OEMVersion": "19.9.0-78"
+            "OEM Version": "19.9.0-78"
         }
     ],
     "AvamarProxy": [
@@ -16,11 +16,10 @@
     "AvamarReplication": [
         {
             "Destination": "aeuvaavmrp001.aam.net / 172.25.8.213",
-            "OEMVersion": "19.9.0-78",
+            "OEM Version": "19.9.0-78",
             "Source": "halvaavmrp001.aam.net"
         }
     ],
-    "AvamarServers": null,
     "DataDomain": [
         {
             "Avamar Replication": "Source",
@@ -44,54 +43,10 @@
     "NasuniFilers": [
         {
             "Alias": "NA",
-            "CacheSize": "1.69 TB",
-            "ConnectedVolumes": "hal-vol002,EnggIT-vol001",
-            "FilerName": "halvansnifp001",
-            "IpAddress": "10.143.127.3",
-            "Path": "https://halvansnifp002:8443/",
-            "Platform": "NVM Filer on VMware ESX 7.0.2",
-            "Shares": "5",
-            "Version": "9.9.5 (OS7)"
-        },
-        {
-            "Alias": "NA",
-            "CacheSize": "1.69 TB",
-            "ConnectedVolumes": "hal-vol002,EnggIT-vol001",
-            "FilerName": "halvansnifp002",
-            "IpAddress": "10.143.127.3",
-            "Path": "https://halvansnifp002:8443/",
-            "Platform": "NVM Filer on VMware ESX 7.0.2",
-            "Shares": "5",
-            "Version": "9.9.5 (OS7)"
-        },
-        {
-            "Alias": "NA",
-            "CacheSize": "1.69 TB",
-            "ConnectedVolumes": "hal-vol002,EnggIT-vol001",
-            "FilerName": "halvansnifp003",
-            "IpAddress": "10.143.127.3",
-            "Path": "https://halvansnifp002:8443/",
-            "Platform": "NVM Filer on VMware ESX 7.0.2",
-            "Shares": "5",
-            "Version": "9.9.5 (OS7)"
-        },
-        {
-            "Alias": "NA",
-            "CacheSize": "1.69 TB",
-            "ConnectedVolumes": "hal-vol002,EnggIT-vol001",
-            "FilerName": "halvansnifp004",
-            "IpAddress": "10.143.127.3",
-            "Path": "https://halvansnifp002:8443/",
-            "Platform": "NVM Filer on VMware ESX 7.0.2",
-            "Shares": "5",
-            "Version": "9.9.5 (OS7)"
-        },
-        {
-            "Alias": "NA",
-            "CacheSize": "1.69 TB",
-            "ConnectedVolumes": "hal-vol002,EnggIT-vol001",
-            "FilerName": "halvansnifp005",
-            "IpAddress": "10.143.127.3",
+            "Cache Size": "1.69 TB",
+            "Connected Volumes": "hal-vol002,EnggIT-vol001",
+            "Filer Name": "halvansnifp001",
+            "Ip Address": "10.143.127.3",
             "Path": "https://halvansnifp002:8443/",
             "Platform": "NVM Filer on VMware ESX 7.0.2",
             "Shares": "5",
