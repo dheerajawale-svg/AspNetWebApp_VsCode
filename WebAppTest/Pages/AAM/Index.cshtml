@@ -1,4 +1,4 @@
-﻿@page "{siteName}"
+@page "{siteName}"
 @using WebAppTest.Models
 @model IndexModel
 
@@ -18,13 +18,28 @@ else
         <thead>
             <tr>
                 <th scope="col">
-                    @nameof(NasuniFiler.Alias)
-                </th>
-                <th scope="col">
                     @nameof(NasuniFiler.FilerName)
                 </th>
                 <th scope="col">
                     @nameof(NasuniFiler.IpAddress)
+                </th>
+                <th scope="col">
+                    @nameof(NasuniFiler.Alias)
+                </th>
+                <th scope="col">
+                    @nameof(NasuniFiler.Version)
+                </th>
+                <th scope="col">
+                    @nameof(NasuniFiler.Platform)
+                </th>
+                <th scope="col">
+                    @nameof(NasuniFiler.ConnectedVolumes)
+                </th>
+                <th scope="col">
+                    @nameof(NasuniFiler.Shares)
+                </th>
+                <th scope="col">
+                    @nameof(NasuniFiler.CacheSize)
                 </th>
                 <th scope="col">
                     @nameof(NasuniFiler.Path)
@@ -37,19 +52,31 @@ else
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Alias)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.FilerName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IpAddress)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Path)
+                    @Html.DisplayFor(modelItem => item.Alias)
                 </td>
                 <td>
-                    <a asp-page="./Details" asp-route-id="@item.FilerName">Details</a>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Platform)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConnectedVolumes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Shares)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CacheSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Path)
                 </td>
             </tr>
         }
@@ -89,9 +116,7 @@ else
                 <td>
                     @Html.DisplayFor(modelItem => item.OEMVersion)
                 </td>
-                <td>
-                    <a asp-page="./Details" asp-route-id="@item.Hostname">Details</a>
-                </td>
+                
             </tr>
         }
 
@@ -127,9 +152,7 @@ else
                 <td>
                     @Html.DisplayFor(modelItem => item.OEMVersion)
                 </td>
-                <td>
-                    <a asp-page="./Details" asp-route-id="@item.Source">Details</a>
-                </td>
+                
             </tr>
         }
 
@@ -166,12 +189,61 @@ else
                 <td>
                     @Html.DisplayFor(modelItem => item.Version)
                 </td>
-                <td>
-                    <a asp-page="./Details" asp-route-id="@item.Hostname">Details</a>
-                </td>
+                
             </tr>
         }
+        </table>
 
+    @*Data domain*@
+    <h3>Data Domain Details</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @nameof(DataDomain.DataDomainHostname)
+                </th>
+                <th scope="col">
+                    @nameof(DataDomain.IpAddress)
+                </th>
+                <th scope="col">
+                    @nameof(DataDomain.Version)
+                </th>
+                <th scope="col">
+                    @nameof(DataDomain.Model)
+                </th>
+                <th scope="col">
+                    @nameof(DataDomain.AvamarReplication)
+                </th>
+                <th scope="col">
+                    @nameof(DataDomain.TotalCapacity)
+                </th>
+                </tr>
+            </thead>
+
+                @foreach (var item in Model.AamSite.DataDomain) 
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataDomainHostname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IpAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Version)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvamarReplication)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCapacity)
+                </td>
+
+                </tr>
+            }
     </table>
 
     <hr />
